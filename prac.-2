@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Potencias Fraccionales de Dos</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 50%;
+      margin: 20px auto;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+  <script>
+    function generarTabla() {
+      // Encabezados de la tabla
+      var tabla = "<table><tr><th>N</th><th>Frac</th><th>Decimal</th></tr>";
+
+      // Calcular y agregar filas a la tabla
+      for (var n = 1; n <= 10; n++) {
+        var fraccion = "1/" + Math.pow(2, n);
+        var decimal = Math.pow(2, -n);
+
+        // Agregar fila a la tabla
+        tabla += "<tr><td>" + n + "</td><td>" + fraccion + "</td><td>" + decimal.toFixed(6) + "</td></tr>";
+      }
+
+      // Cerrar la tabla
+      tabla += "</table>";
+
+      // Mostrar la tabla en el contenedor
+      document.getElementById("tabla-container").innerHTML = tabla;
+    }
+  </script>
+</head>
+<body>
+
+  <h2>Potencias Fraccionales de Dos</h2>
+
+  <button onclick="generarTabla()">Generar Tabla</button>
+
+  <div id="tabla-container"></div>
+
+</body>
+</html>
